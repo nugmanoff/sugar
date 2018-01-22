@@ -9,7 +9,7 @@ import Foundation
 
 import Foundation
 
-func ZetaAlgorithm(ptrn: String) -> [Int]? {
+func zetaAlgorithm(ptrn: String) -> [Int]? {
     
     let pattern = Array(ptrn.characters)
     let patternLength = pattern.count
@@ -33,7 +33,7 @@ func ZetaAlgorithm(ptrn: String) -> [Int]? {
             
             while k + patternIndex < patternLength  &&
                 pattern[k + patternIndex] == pattern[patternIndex] {
-                    patternIndex = patternIndex + 1
+                    patternIndex += 1
             }
             
             zeta[k] = patternIndex
@@ -53,8 +53,8 @@ func ZetaAlgorithm(ptrn: String) -> [Int]? {
                 patternIndex = right + 1
                 
                 while patternIndex < patternLength && pattern[textIndex] == pattern[patternIndex] {
-                    textIndex = textIndex + 1
-                    patternIndex = patternIndex + 1
+                    textIndex += 1
+                    patternIndex += 1
                 }
                 
                 zeta[k] = patternIndex - k

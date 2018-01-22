@@ -27,7 +27,7 @@ extension String {
         var indexes: [Int] = [Int]()
         
         /* Pre-processing stage: computing the table for the shifts (through Z-Algorithm) */
-        let zeta = ZetaAlgorithm(ptrn: ptrn)
+        let zeta = zetaAlgorithm(ptrn: ptrn)
         
         for patternIndex in (1 ..< patternLength).reversed() {
             textIndex = patternIndex + zeta![patternIndex] - 1
@@ -41,8 +41,8 @@ extension String {
         while textIndex + (patternLength - patternIndex - 1) < textLength {
             
             while patternIndex < patternLength && text[textIndex] == pattern[patternIndex] {
-                textIndex = textIndex + 1
-                patternIndex = patternIndex + 1
+                textIndex += 1
+                patternIndex += 1
             }
             
             if patternIndex == patternLength {
@@ -50,7 +50,7 @@ extension String {
             }
             
             if patternIndex == 0 {
-                textIndex = textIndex + 1
+                textIndex += 1
             } else {
                 patternIndex = suffixPrefix[patternIndex - 1]
             }

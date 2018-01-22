@@ -19,7 +19,7 @@
 		OBJ_123 /* Performable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Performable.swift */; };
 		OBJ_124 /* PrintableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* PrintableError.swift */; };
 		OBJ_125 /* ScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* ScriptRunner.swift */; };
-		OBJ_126 /* Traverser.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Traverser.swift */; };
+		OBJ_126 /* Adder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Adder.swift */; };
 		OBJ_128 /* Files.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Files::Files::Product" /* Files.framework */; };
 		OBJ_129 /* Releases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Releases::Releases::Product" /* Releases.framework */; };
 		OBJ_130 /* Require.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Require::Require::Product" /* Require.framework */; };
@@ -158,7 +158,7 @@
 		OBJ_12 /* Performable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Performable.swift; sourceTree = "<group>"; };
 		OBJ_13 /* PrintableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintableError.swift; sourceTree = "<group>"; };
 		OBJ_14 /* ScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptRunner.swift; sourceTree = "<group>"; };
-		OBJ_15 /* Traverser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traverser.swift; sourceTree = "<group>"; };
+		OBJ_15 /* Adder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adder.swift; sourceTree = "<group>"; };
 		OBJ_17 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		OBJ_22 /* ArgumentConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentConvertible.swift; sourceTree = "<group>"; };
 		OBJ_23 /* ArgumentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentDescription.swift; sourceTree = "<group>"; };
@@ -397,7 +397,7 @@
 				OBJ_12 /* Performable.swift */,
 				OBJ_13 /* PrintableError.swift */,
 				OBJ_14 /* ScriptRunner.swift */,
-				OBJ_15 /* Traverser.swift */,
+				OBJ_15 /* Adder.swift */,
 				1CAD8FD0201652CA0057C51E /* String+KMP.swift */,
 				1CAD8FD2201654280057C51E /* ZAlgorithm.swift */,
 			);
@@ -665,7 +665,7 @@
 				OBJ_123 /* Performable.swift in Sources */,
 				OBJ_124 /* PrintableError.swift in Sources */,
 				OBJ_125 /* ScriptRunner.swift in Sources */,
-				OBJ_126 /* Traverser.swift in Sources */,
+				OBJ_126 /* Adder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

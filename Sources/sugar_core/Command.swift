@@ -24,7 +24,7 @@ extension Command {
     var description: String {
         switch self {
         case .add:
-            return "Evaluate deposit splitting using current Market Cap"
+            return "Add pod entry to Podfile"
         }
     }
     
@@ -32,7 +32,7 @@ extension Command {
         let runner = ScriptRunner()
         switch self {
         case .add:
-            return Traverser(with: runner)
+            return Adder(with: runner)
         }
     }
     
@@ -40,10 +40,8 @@ extension Command {
         switch self {
         case .add:
             return command(
-                Option("amount", default: 100.0, flag: "a", description: "Amount of money (USD) to invest."),
-                Option("threshold", default: 3.0, flag: "t", description: "Threshold percentage of Total " +
-                    "Market Cap Index of currency.")) { amount, threshold in
-                        self.task.perform(amount, threshold)
+                Option("version", default: -1.0, flag: "v", description: "Specified version of pod to install.")) { version in
+                        self.task.perform(version)
             }
         }
     }
