@@ -32,13 +32,12 @@ public final class CommandManager {
     
     private var version = String()
     private var group = Group()
-    private var repo = "https://github.com/nugmanoff/indexify.git"
+    private var repo = "https://github.com/nugmanoff/sugar.git"
     
     // MARK: - Init
     
     public init() {
         resolveCommands()
-        resolveVersion()
     }
     
     public convenience init(with version: String) {
