@@ -17,7 +17,7 @@ extension Command {
     var name: String {
         switch self {
         case .add:
-            return "eval"
+            return "add"
         }
     }
     

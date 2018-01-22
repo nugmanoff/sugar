@@ -18,7 +18,7 @@ let package = Package(
         ),
         .target(
             name: "sugar_core",
-            dependencies: ["Commander", "Releases", "ShellOut"]
+            dependencies: ["Commander", "Releases", "ShellOut", "Files"]
         )
     ]
 )
