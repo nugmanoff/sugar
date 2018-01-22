@@ -34,7 +34,7 @@ public final class CommandManager {
     private var group = Group()
     private var repo = "https://github.com/nugmanoff/indexify.git"
     
-// MARK: - Init
+    // MARK: - Init
     
     public init() {
         resolveCommands()
@@ -50,7 +50,7 @@ public final class CommandManager {
         group.run(version)
     }
     
-// MARK: - Private
+    // MARK: - Private
     
     private func resolveCommands() {
         group.add(command: .add)

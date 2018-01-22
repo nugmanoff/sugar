@@ -9,6 +9,13 @@ import Foundation
 
 extension String {
     
+    func lastIndex(of ptrn: String) -> Int? {
+        guard let indexes = indexesOf(ptrn: ptrn) else {
+            return nil
+        }
+        return indexes.last
+    }
+    
     fileprivate func indexesOf(ptrn: String) -> [Int]? {
         
         let text = Array(self.characters)
@@ -26,7 +33,6 @@ extension String {
         var patternIndex: Int = 0
         var indexes: [Int] = [Int]()
         
-        /* Pre-processing stage: computing the table for the shifts (through Z-Algorithm) */
         let zeta = zetaAlgorithm(ptrn: ptrn)
         
         for patternIndex in (1 ..< patternLength).reversed() {
@@ -34,7 +40,6 @@ extension String {
             suffixPrefix[textIndex] = zeta![patternIndex]
         }
         
-        /* Search stage: scanning the text for pattern matching */
         textIndex = 0
         patternIndex = 0
         
@@ -60,12 +65,5 @@ extension String {
             return nil
         }
         return indexes
-    }
-    
-    func lastIndex(of ptrn: String) -> Int? {
-        guard let indexes = indexesOf(ptrn: ptrn) else {
-            return nil
-        }
-        return indexes.last
     }
 }

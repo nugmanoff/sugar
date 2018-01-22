@@ -22,51 +22,50 @@ extension AdderError: PrintableError {
     public var message: String {
         switch self {
         case .failedToLocatePodfile:
-            return "Decoding error occurred"
+            return "Failed to located Podfile in the current directory."
         case .failedToReadContents:
-            return "Network error occurred"
+            return "Failed to read contents of Podfile."
         case .corruptedStructureError:
-            return ""
+            return "Corrupted structure of Podfile detected."
         case .failedToUpdatePodfile:
-            return ""
+            return "Failed to update Podfile."
         }
     }
 }
 
 // MARK: - Adder
 
-class Adder: Performable {
+public final class Adder {
 
     private var runner = ScriptRunner()
     private typealias Error = AdderError
+    
+    // MARK: - Init
 
-    required init(with runner: ScriptRunner) {
-        self.runner = runner
+    public init() {
     }
 
-    public func perform(_ arguments: ArgumentConvertible...) {
-        let version = arguments[0] as! Double
-        perform(version: version)
+    public func perform(pod: String, version: Double, path: String) {
+        addPod(pod, with: version, and: path)
     }
     
-    private func perform(version: Double) {
+    // MARK: - Private
 
-    }
-    
-    private func addPod(_ pod: String, with version: Double) {
+    private func addPod(_ pod: String, with version: Double, and path: String) {
         do {
-            var podfile = try getContents()
+            var podfile = try getContents(from: path)
             let index = try getIndex(for: podfile)
             var entry = "\n  pod '\(pod)'"
             entry += (version != -1.0 ? ", '~> \(version)'" : "")
             podfile.insert(contentsOf: entry.characters, at: String.Index.init(encodedOffset: index))
+            try updatePodfile(with: podfile, at: path)
         } catch {
             print(error.localizedDescription)
         }
     }
     
-    private func updatePodfile(with contents: String) throws {
-        guard let file = try? Folder.current.file(named: "Podfile") else {
+    private func updatePodfile(with contents: String, at path: String) throws {
+        guard let file = try? Folder(path: path).file(named: "Podfile") else {
             throw Error.failedToLocatePodfile
         }
         do {
@@ -83,8 +82,8 @@ class Adder: Performable {
         return lastIndex - 1
     }
     
-    private func getContents() throws -> String {
-        guard let file = try? Folder.current.file(named: "Podfile") else {
+    private func getContents(from path: String) throws -> String {
+        guard let file = try? Folder(path: path).file(named: "Podfile") else {
             throw Error.failedToLocatePodfile
         }
         guard let contents = try? file.readAsString() else {

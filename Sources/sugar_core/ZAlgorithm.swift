@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 func zetaAlgorithm(ptrn: String) -> [Int]? {
     
     let pattern = Array(ptrn.characters)

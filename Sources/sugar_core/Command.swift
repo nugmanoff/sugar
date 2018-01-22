@@ -28,20 +28,14 @@ extension Command {
         }
     }
     
-    var task: Performable {
-        let runner = ScriptRunner()
-        switch self {
-        case .add:
-            return Adder(with: runner)
-        }
-    }
-    
     var wrapper: CommandType {
         switch self {
         case .add:
             return command(
-                Option("version", default: -1.0, flag: "v", description: "Specified version of pod to install.")) { version in
-                        self.task.perform(version)
+                Argument<String>("pod", description: "Name of the pod to add."),
+                Option("version", default: -1.0, flag: "v", description: "Specified version of pod to install."),
+                Option("path", default: ".", flag: "p", description: "Specified path to Podfile.")) { pod, version, path in
+                    Adder().perform(pod: pod, version: version, path: path)
             }
         }
     }
