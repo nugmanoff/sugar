@@ -40,4 +40,4 @@ sugar add Alamofire -p /Users/Aidar/Workspace/CLI/sugar
 
 ## Help, feedback or suggestions?
 
-Feel free to contact me on [Telegram](https://t.me/nugmanoff) for discussions, news & announcements about Indexify & other projects.
+Feel free to contact me on [Telegram](https://t.me/nugmanoff) for discussions, news & announcements about Sugar & other projects.
